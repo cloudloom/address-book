@@ -1,6 +1,8 @@
 package com.tracebucket.x1.addressbook.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by ffl on 02-01-2015.
@@ -13,9 +15,13 @@ public class County extends BaseEntity {
     @Basic(fetch = FetchType.EAGER)
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
+    @Column(name = "FLAG")
+    @Basic(fetch = FetchType.EAGER)
+    private String flag;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "COUNTY__ID")
-    private Country country;
+    private Set<City> cities = new HashSet<City>(0);
 
     public String getName() {
         return name;
@@ -25,11 +31,19 @@ public class County extends BaseEntity {
         this.name = name;
     }
 
-    public Country getCountry() {
-        return country;
+    public String getFlag() {
+        return flag;
     }
 
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public Set<City> getCities() {
+        return cities;
+    }
+
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
     }
 }

@@ -13,9 +13,9 @@ public class City extends BaseEntity {
     @Basic(fetch = FetchType.EAGER)
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST})
-    @JoinColumn(name = "CITY__ID")
-    private County county;
+    @Column(name = "IMAGE")
+    @Basic(fetch = FetchType.EAGER)
+    private String image;
 
     public String getName() {
         return name;
@@ -25,11 +25,12 @@ public class City extends BaseEntity {
         this.name = name;
     }
 
-    public County getCounty() {
-        return county;
+    public String getImage() {
+        return image;
     }
 
-    public void setCounty(County county) {
-        this.county = county;
+    public void setImage(String image) {
+        this.image = image;
     }
+
 }
