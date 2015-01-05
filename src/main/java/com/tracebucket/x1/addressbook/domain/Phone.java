@@ -1,60 +1,51 @@
 package com.tracebucket.x1.addressbook.domain;
 
-import javax.persistence.Entity;
+import com.tracebucket.x1.addressbook.dictionary.PhoneType;
+
+import javax.persistence.*;
 
 /**
  * Created by ffl on 02-01-2015.
  */
 @Entity
-public class Phone{
+public class Phone extends ValueObject{
 
-    private String mobileNumber;
-    private String landLineNumber;
-    private String countryPrefix;
-    private String areaCode;
-    private String landLineNumberExt;
+    @Column(name = "NUMBER")
+    @Basic(fetch = FetchType.EAGER)
+    private Long number;
 
+    @Column(name = "EXTENSION")
+    @Basic(fetch = FetchType.EAGER)
+    private Integer extension;
+
+    @Column(name = "PHONE_TYPE", nullable = false, columnDefinition = "ENUM('MOBILE', 'WORK', 'HOME') default 'WORK'")
+    @Enumerated(EnumType.STRING)
+    private PhoneType phoneType;
 
     public Phone() {
     }
 
-    public String getMobileNumber() {
-        return mobileNumber;
+    public Long getNumber() {
+        return number;
     }
 
-    public void setMobileNumber(String mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public void setNumber(Long number) {
+        this.number = number;
     }
 
-    public String getLandLineNumber() {
-        return landLineNumber;
+    public Integer getExtension() {
+        return extension;
     }
 
-    public void setLandLineNumber(String landNumber) {
-        this.landLineNumber = landNumber;
+    public void setExtension(Integer extension) {
+        this.extension = extension;
     }
 
-    public String getCountryPrefix() {
-        return countryPrefix;
+    public PhoneType getPhoneType() {
+        return phoneType;
     }
 
-    public void setCountryPrefix(String countryPrefix) {
-        this.countryPrefix = countryPrefix;
-    }
-
-    public String getAreaCode() {
-        return areaCode;
-    }
-
-    public void setAreaCode(String areaCode) {
-        this.areaCode = areaCode;
-    }
-
-    public String getLandLineNumberExt() {
-        return landLineNumberExt;
-    }
-
-    public void setLandLineNumberExt(String landNumberExt) {
-        this.landLineNumberExt = landNumberExt;
+    public void setPhoneType(PhoneType phoneType) {
+        this.phoneType = phoneType;
     }
 }

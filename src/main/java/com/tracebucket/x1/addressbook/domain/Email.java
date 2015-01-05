@@ -1,24 +1,37 @@
 package com.tracebucket.x1.addressbook.domain;
 
-import javax.persistence.Entity;
+import com.tracebucket.x1.addressbook.dictionary.EmailType;
+
+import javax.persistence.*;
 
 /**
  * Created by ffl on 02-01-2015.
  */
 @Entity
-public class Email{
+public class Email extends ValueObject{
 
-    private String userID;
+    @Column(name = "EMAIL")
+    @Basic(fetch = FetchType.EAGER)
+    private String email;
 
-    public Email() {
+    @Column(name = "EMAIL_TYPE", nullable = false, columnDefinition = "ENUM('PERSONAL', 'BUSINESS') default 'BUSINESS'")
+    @Enumerated(EnumType.STRING)
+    private EmailType emailType;
+
+    public String getEmail() {
+        return email;
     }
 
-    public String getUserID() {
-        return userID;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public EmailType getEmailType() {
+        return emailType;
+    }
+
+    public void setEmailType(EmailType emailType) {
+        this.emailType = emailType;
     }
 
 }
