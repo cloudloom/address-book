@@ -6,45 +6,55 @@ import javax.persistence.Entity;
  * Created by ffl on 02-01-2015.
  */
 @Entity
-public class Phone extends BaseEntity {
+public class Phone{
 
-    private String phoneNumber;
-    private String lastName;
-    private String middleName;
-    private String firstName;
+    private String mobileNumber;
+    private String landLineNumber;
+    private String countryPrefix;
+    private String areaCode;
+    private String landLineNumberExt;
+
 
     public Phone() {
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLandLineNumber() {
+        return landLineNumber;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLandLineNumber(String landNumber) {
+        this.landLineNumber = landNumber;
     }
 
-    public String getMiddleName() {
-        return middleName;
+    public String getCountryPrefix() {
+        return countryPrefix;
     }
 
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
+    public void setCountryPrefix(String countryPrefix) {
+        this.countryPrefix = countryPrefix;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getAreaCode() {
+        return areaCode;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
+
+    public String getLandLineNumberExt() {
+        return landLineNumberExt;
+    }
+
+    public void setLandLineNumberExt(String landNumberExt) {
+        this.landLineNumberExt = landNumberExt;
     }
 }
