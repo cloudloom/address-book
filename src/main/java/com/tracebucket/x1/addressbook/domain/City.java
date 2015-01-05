@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "CITY")
-public class City extends BaseEntity {
+public class City extends ValueObject {
 
     @Column(name = "NAME", nullable = false)
     @Basic(fetch = FetchType.EAGER)

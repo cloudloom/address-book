@@ -9,7 +9,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "COUNTRY")
-public class Country extends BaseEntity {
+public class Country extends ValueObject {
 
     @Column(name = "NAME", nullable = false)
     @Basic(fetch = FetchType.EAGER)
