@@ -7,8 +7,8 @@ import javax.persistence.*;
 /**
  * Created by ffl on 02-01-2015.
  */
-@Entity
-public class Phone extends ValueObject{
+@Embeddable
+public class Phone {
 
     @Column(name = "NUMBER")
     @Basic(fetch = FetchType.EAGER)

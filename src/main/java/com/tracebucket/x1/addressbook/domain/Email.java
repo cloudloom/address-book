@@ -7,8 +7,8 @@ import javax.persistence.*;
 /**
  * Created by ffl on 02-01-2015.
  */
-@Entity
-public class Email extends ValueObject{
+@Embeddable
+public class Email {
 
     @Column(name = "EMAIL")
     @Basic(fetch = FetchType.EAGER)
@@ -35,3 +35,4 @@ public class Email extends ValueObject{
     }
 
 }
+
